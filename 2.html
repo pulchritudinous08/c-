@@ -235,8 +235,29 @@ introAnim();
     document.body.addEventListener('click', () => music.play(), { once: true });
   });
 </script>
+  <!-- Icon nhỏ ở góc -->
+<img id="cornerIcon" src="hình ảnh_2025-10-26_005628738.png" alt="Icon" />
+
+<!-- CSS -->
+<style>
+#cornerIcon {
+  position: fixed;
+  bottom: 20px;   /* chỉnh vị trí: góc dưới */
+  right: 20px;    /* góc phải */
+  width: 50px;    /* kích thước icon */
+  height: 50px;
+  z-index: 100;
+  cursor: pointer;  /* nếu muốn nhấn được */
+}
+#cornerIcon:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+}
+</style>
+
 </body>
 </html>
+
 
 
 
