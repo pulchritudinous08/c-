@@ -235,47 +235,8 @@ introAnim();
     document.body.addEventListener('click', () => music.play(), { once: true });
   });
 </script>
- <!-- Nút nhạc hình Mahiru -->
-<button id="playMusicBtn" class="fishBtn"></button>
-
-<!-- CSS nút Mahiru -->
-<style>
-.fishBtn {
-  position: fixed;
-  bottom: 50px;       /* vị trí nút */
-  right: 50px;
-  width: 100px;       /* kích thước nút */
-  height: 80px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 50;
-  background-image: url('mahiru.jpg'); /* hình Mahiru, cùng folder với HTML */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.fishBtn:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s;
-}
-</style>
-
-<!-- JS bật nhạc -->
-<script>
-const music = document.getElementById('bgMusic'); // ID audio trong HTML
-const playBtn = document.getElementById('playMusicBtn');
-
-playBtn.addEventListener('click', () => {
-  music.play();                 // bật nhạc
-  playBtn.style.display = 'none'; // ẩn nút sau khi bấm
-});
-</script>
 </body>
 </html>
-
-
-
 
 
 
