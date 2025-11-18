@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Minh Thu</title>
+<title>Happy Birthday Thanh Thao</title>
 <style>
   body {
     margin: 0;
@@ -71,15 +71,58 @@
 <canvas id="introCanvas"></canvas>
 
 <div class="marquee">
-  hẹ hẹ hẹeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed
+  Sinh nhật vui vẻ 💖 • Hẹ hẹ hẹ 😆 • 🎂 • 
 </div>
-<h1> MThu sinh nhựt dui dẻ </h1>
+
+<h1>Happy Birthday Thanh Thao 🎉</h1>
+
 <canvas id="canvas"></canvas>
+
 <script>
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
+
+// --- Con cá ---
+class Fish {
+  constructor(x, y, speed, color) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.angle = Math.random() * Math.PI * 2;
+    this.color = color;
+  }
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(Math.sin(Date.now() / 500 + this.x / 100) / 3);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(20, -10, 40, 0);
+    ctx.quadraticCurveTo(20, 10, 0, 0);
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(35, -2, 3, 0, Math.PI * 2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.restore();
+  }
+  update() {
+    this.x += Math.cos(this.angle) * this.speed;
+    this.y += Math.sin(this.angle) * this.speed;
+    if (this.x < 0 || this.x > canvas.width) this.angle = Math.PI - this.angle;
+    if (this.y < 0 || this.y > canvas.height) this.angle = -this.angle;
+    this.draw();
+  }
+}
+
+const fishes = [
+  new Fish(200, 400, 2, "#00BFFF"),
+  new Fish(600, 300, 2.5, "#00CED1")
+];
 
 // --- Hoa đào ---
 class Petal {
@@ -181,47 +224,5 @@ function introAnim() {
 }
 introAnim();
 </script>
- <audio id="bgMusic" autoplay loop playsinline>
-  <source src="music.mp3.mp3" type="audio/mpeg">
-  Trình duyệt của bạn không hỗ trợ phát nhạc.
-</audio>
-<script>
-  const music = document.getElementById('bgMusic');
-  music.play().catch(() => {
-    // Nếu bị chặn, bật nhạc khi người dùng click vào body
-    document.body.addEventListener('click', () => music.play(), { once: true });
-  });
-</script>
-  <!-- Icon nhỏ ở góc -->
-<img id="cornerIcon" src="hình ảnh_2025-10-26_005628738.png" alt="Icon" />
-
-<!-- CSS -->
-<style>
-#cornerIcon {
-  position: fixed;
-  bottom: 20px;   /* chỉnh vị trí: góc dưới */
-  right: 20px;    /* góc phải */
-  width: 50px;    /* kích thước icon */
-  height: 50px;
-  z-index: 100;
-  cursor: pointer;  /* nếu muốn nhấn được */
-}
-#cornerIcon:hover {
-  transform: scale(1.2);
-  transition: transform 0.2s;
-}
-</style>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
